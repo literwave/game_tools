@@ -1,10 +1,10 @@
 -- author:   liter_wave 
 -- Automatic generation from -->>
 -- excel file  name: ./excel/hero.xlsx
--- excel sheet name: ”¢–€
+-- excel sheet name: Ëã±ÈõÑ
 return {
     [2] = {
-        ["Name"] = "∞¬∂°",
+        ["Name"] = "Â••‰∏Å",
         ["MountId"] = 10001,
         ["Sex"] = 1,
         ["num"] = {

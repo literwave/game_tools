@@ -4,7 +4,7 @@
 -- excel sheet name: Sheet1
 return {
     [2] = {
-        ["Name"] = "����",
+        ["Name"] = "雷声",
         ["MountId"] = 10002,
         ["Sex"] = 1,
         ["num"] = {
@@ -21,17 +21,17 @@ return {
         ["xxx"] = {1,2,3}
     },
     [1] = {
-        ["Name"] = "�¶�",
+        ["Name"] = "奥丁",
         ["MountId"] = 10001,
         ["Sex"] = 1
     },
     [3] = {
-        ["Name"] = "ϣܽ",
+        ["Name"] = "希芙",
         ["MountId"] = 0,
         ["Sex"] = 0
     },
     [6] = {
-        ["Name"] = "ϣܽ6",
+        ["Name"] = "希芙6",
         ["MountId"] = 0,
         ["Sex"] = 0
     }

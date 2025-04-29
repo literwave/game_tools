@@ -1,5 +1,5 @@
 
-start export_file.py -r ./excel/hero.xlsx -f lua -t ../server -o s
+start export_file.py -r ./excel/hero.xlsx -f lua -t ./server -o s
 
 @echo off
 rem 指定存放文件的目录

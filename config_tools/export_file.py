@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+# encoding:utf-8
 '''
 xlsx 仅仅支持1.2.0 xlrd
 1.待做 第一行 数据不为空的时候生成空表就行了
@@ -11,6 +13,7 @@ if sys.version_info < (3, 0):
     print('python version need more than 3.x')
     sys.exit(1)
 
+sys.path.append("./3rd")
 import os
 import getopt
 import xlrd
@@ -173,7 +176,7 @@ class excelFileInfo():
         :return:
         """
         if fileType not in TARGET_FILE_TYPE:
-            print("不能转行成这种文件格式")
+            print(f"不能转行成这种文件格式 {fileType}")
             sys.exit(1)
         self.fileType = fileType
 
@@ -251,7 +254,6 @@ class dealExcelInfo():
             print("生成子表出错:{0} 文件路径为：{1}".format(sheet.name, self.excelInfo.excelPathFile))
             sys.exit(1)
             # 第行就是文件描述
-        print(self.excelInfo.targetDir)
         self.targetFile = self.excelInfo.targetDir + '/' + sheet.row_values(0)[0] + '.' + self.excelInfo.fileType
         print(self.targetFile)
         dataTypes = sheet.row_values(2)
@@ -332,8 +334,8 @@ class dealExcelInfo():
         outStr = self.out_note(sheet) + transFunc(
             self.dealInfo)
         # save to file
-        print(self.targetFile)
-        with open(self.targetFile, 'w') as f:
+        print("create", self.targetFile)
+        with open(self.targetFile, 'w', encoding = "utf-8") as f:
             f.write(outStr + "\n")
 
     def out_note(self, sheet):
@@ -369,5 +371,10 @@ if __name__ == '__main__':
         elif op == "-o":
             # 指定生成的文件是客户端还是服务端
             excelFileInfo.setOTargetUse(v)
-    if excelFileInfo.excelPathFile and excelFileInfo.fileType and excelFileInfo.targetDir and excelFileInfo.sheets and excelFileInfo.useType and excelFileInfo.excelBasename and excelFileInfo.excelfileName:
+
+    # if excelFileInfo.excelPathFile and excelFileInfo.fileType and excelFileInfo.targetDir and excelFileInfo.sheets and excelFileInfo.useType and excelFileInfo.excelBasename and excelFileInfo.excelfileName:
+    try:
         dealExcel = dealExcelInfo(excelFileInfo)
+    except:
+        print("文件路径为：{0} 在 {1}, 生成文件失败{2}".format(excelFileInfo.excelPathFile, excelFileInfo.sheets.name))
+        sys.exit(1)
